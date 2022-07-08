@@ -1,34 +1,41 @@
 package org.example.service;
 
-import org.example.model.PessoaOscar;
+import org.example.model.PersonOscar;
 
-import java.security.KeyStore;
 import java.util.*;
 import java.util.stream.Collectors;
 
 
 public class OscarService {
 
-    private final List<PessoaOscar> pessoaOscar;
+    private final List<PersonOscar> personOscar;
 
-    public OscarService(List<PessoaOscar> pessoaOscar) {
-        this.pessoaOscar = pessoaOscar;
+    public OscarService(List<PersonOscar> personOscar) {
+        this.personOscar = personOscar;
     }
 
     public void youngestActorOrActress() {
-        pessoaOscar.stream()
-                .min(Comparator.comparing(PessoaOscar::getAge))
-                .ifPresent(pessoa -> System.out.printf("O ator ou atriz mais jovem a ser premiado é %s aos %s anos.%n"
-                , pessoa.getName(), pessoa.getAge()));
+
+        System.out.println("----O ator ou atriz mais jovem a ser premiado é(são):---");
+        var minAge = personOscar.stream()
+                .min(Comparator.comparing(c -> c.getAge()))
+                .get();
+
+        personOscar.stream()
+                .filter(p -> p.getAge() == minAge.getAge())
+                .collect(Collectors.groupingBy(p -> p.getName()))
+                .forEach((key, value) -> System.out.printf("%s aos %d %n",
+                        value.get(0).getName() , value.get(0).getAge()));
+
     }
 
     public void mostAwardedActorOrActress() {
         long count = 0;
         String name = null;
 
-        for (PessoaOscar c : pessoaOscar) {
-            long qtVictories = pessoaOscar.stream()
-                    .filter(pessoa -> (pessoa.getName().equals(c.getName())))
+        for (PersonOscar c : personOscar) {
+            long qtVictories = personOscar.stream()
+                    .filter(person -> (person.getName().equals(c.getName())))
                     .count();
 
             if (qtVictories > count) {
@@ -47,10 +54,10 @@ public class OscarService {
         long count = 0;
         String name = null;
 
-        for (PessoaOscar c : pessoaOscar) {
-            long qtVictories = pessoaOscar.stream()
-                    .filter(pessoa -> (pessoa.getName().equals(c.getName()) &&
-                            18 < pessoa.getAge() && pessoa.getAge() < 24))
+        for (PersonOscar c : personOscar) {
+            long qtVictories = personOscar.stream()
+                    .filter(person -> (person.getName().equals(c.getName()) &&
+                            18 < person.getAge() && person.getAge() < 24))
                     .count();
 
             if (qtVictories > count) {

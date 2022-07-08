@@ -1,13 +1,12 @@
 package org.example.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 
 
 @AllArgsConstructor
 @Getter
-public class PessoaOscar {
+public class PersonOscar {
     private int index;
     private int year;
     private int age;

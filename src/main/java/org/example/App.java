@@ -1,7 +1,7 @@
 package org.example;
 
 import org.example.mapper.DadosOscarMapper;
-import org.example.model.PessoaOscar;
+import org.example.model.PersonOscar;
 import org.example.service.OscarService;
 import org.example.util.FileUtil;
 
@@ -13,8 +13,8 @@ public class App {
 
     public static void main(String[] args) throws IOException {
 
-        var oscar_age_female = new FileUtil<PessoaOscar>("oscar_age_female_teste.csv");
-        var oscar_age_male = new FileUtil<PessoaOscar>("oscar_age_male.csv");
+        var oscar_age_female = new FileUtil<PersonOscar>("oscar_age_female_teste.csv");
+        var oscar_age_male = new FileUtil<PersonOscar>("oscar_age_male.csv");
 
         var dadosMale = oscar_age_male.readFile(new DadosOscarMapper());
         var dadosFemale = oscar_age_female.readFile(new DadosOscarMapper());

@@ -1,13 +1,13 @@
 package org.example.mapper;
 
-import org.example.model.PessoaOscar;
+import org.example.model.PersonOscar;
 import java.util.function.Function;
 import static java.lang.Integer.parseInt;
 
-public class DadosOscarMapper implements Function<String, PessoaOscar> {
+public class DadosOscarMapper implements Function<String, PersonOscar> {
 
     @Override
-    public PessoaOscar apply(String s) {
+    public PersonOscar apply(String s) {
         var dadosLinha = s.split(";");
         var index = parseInt(dadosLinha[0].replace(" ", ""));
         var year = parseInt(dadosLinha[1].replace(" ", ""));
@@ -15,6 +15,6 @@ public class DadosOscarMapper implements Function<String, PessoaOscar> {
         var name = (dadosLinha[3]);
         var movie = (dadosLinha[4]);
 
-        return new PessoaOscar(index, year, age, name, movie);
+        return new PersonOscar(index, year, age, name, movie);
     }
 }
