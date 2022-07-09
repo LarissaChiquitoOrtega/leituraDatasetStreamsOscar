@@ -4,6 +4,7 @@ import org.example.model.PersonOscar;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 public class OscarService {
@@ -16,7 +17,7 @@ public class OscarService {
 
     public void youngestActorOrActress() {
 
-        System.out.println("----O ator ou atriz mais jovem a ser premiado é(são):---");
+        System.out.println("----Ator(es) ou atriz(es) mais jovem(ens) premiado(s)---");
         var minAge = personOscar.stream()
                 .min(Comparator.comparing(c -> c.getAge()))
                 .get();
@@ -26,31 +27,32 @@ public class OscarService {
                 .collect(Collectors.groupingBy(p -> p.getName()))
                 .forEach((key, value) -> System.out.printf("%s aos %d %n",
                         value.get(0).getName() , value.get(0).getAge()));
+        System.out.println();
 
     }
 
     public void mostAwardedActorOrActress() {
-        long count = 0;
-        String name = null;
 
-        for (PersonOscar c : personOscar) {
-            long qtVictories = personOscar.stream()
-                    .filter(person -> (person.getName().equals(c.getName())))
-                    .count();
+        System.out.println("----O ator ou atriz mais jovem a ser premiado é(são):---");
 
-            if (qtVictories > count) {
-                count = qtVictories;
-                name = c.getName();
-            }else if (qtVictories == count && !name.contains(c.getName())) {
-                name = name + ", " + c.getName();
-            }
-        }
+        Map<String, Long> countPerName = personOscar.stream()
+                .map(PersonOscar::getName)
+                .collect(Collectors.groupingBy(nome -> nome, Collectors.counting()));
 
-        System.out.printf("O ator ou atriz mais premiado(a) foi %s. %n", name);
+        long maxValue = countPerName.entrySet().stream()
+                .max(Comparator.comparingLong(Map.Entry::getValue)).get().getValue();
+
+        countPerName.entrySet().stream()
+                .filter(a -> a.getValue().equals(maxValue))
+                .distinct()
+                .forEach(c -> System.out.println(c + "prêmios"));
+
+        System.out.println();
     }
-
-
     public void mostAwardedYoung(){
+
+        System.out.println("----Jovem(ens) mais premiado(s) (entre 18 e 24 anos) foi(foram):---");
+
         long count = 0;
         String name = null;
 
@@ -69,7 +71,7 @@ public class OscarService {
 
         }
 
-        System.out.printf("O(s) jovem(ens) mais premiado(s) (entre 18 e 24 anos) foi(foram): %s. %n", name);
+        System.out.printf("%s. %n", name);
     }
 
 }

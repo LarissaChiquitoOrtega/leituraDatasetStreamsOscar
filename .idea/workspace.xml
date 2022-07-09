@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4adfa890-af00-4f85-bdb2-9a7698adacc7" name="Changes" comment="(Lombok, Streams, leitura Dataset)">
+    <list default="true" id="4adfa890-af00-4f85-bdb2-9a7698adacc7" name="Changes" comment="Atualizacao - youngestActorOrActress()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mapper/DadosOscarMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mapper/DadosOscarMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/PessoaOscar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/PersonOscar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/OscarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/OscarService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +81,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657251906707</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Atualizacao - youngestActorOrActress()">
+      <created>1657317395337</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1657317395338</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -100,6 +104,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="(Lombok, Streams, leitura Dataset)" />
-    <option name="LAST_COMMIT_MESSAGE" value="(Lombok, Streams, leitura Dataset)" />
+    <MESSAGE value="Atualizacao - youngestActorOrActress()" />
+    <option name="LAST_COMMIT_MESSAGE" value="Atualizacao - youngestActorOrActress()" />
   </component>
 </project>
